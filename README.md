@@ -281,7 +281,7 @@ This setup ensures Jenkins will automatically start builds when it receives webh
 4. Monitor the build status in Jenkins
 
 <div align="center">
-  <img src="/images/Screenshot 2025-04-05 025728.png">
+  <img src="/images/Screenshot 2025-04-05 033139.png">
 </div>
 
 ## Troubleshooting
