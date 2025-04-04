@@ -99,21 +99,24 @@ This guide walks you through setting up Jenkins and creating a declarative pipel
 
 ### Step 2: Configure GitHub Credentials in Jenkins
 
-#### For HTTPS:
-1. Navigate to Jenkins → Manage Jenkins → Credentials → Global → Add Credentials
-2. Configure:
-   - Kind: Username with password
-   - Username: Your GitHub username
-   - Password: GitHub Personal Access Token
-   - ID: github-token
+1. **Generate GitHub Personal Access Token**:
+   - Go to GitHub → Settings → Developer settings → Personal access tokens
+   - Click "Generate new token"
+   - Select the following permissions:
+     - `repo`
+     - `workflow`
+     - `read:org`
+   - Generate and copy the token (store it safely, as you won't be able to see it again)
 
-#### For SSH:
-1. Navigate to Jenkins → Manage Jenkins → Credentials → Global → Add Credentials
-2. Configure:
-   - Kind: SSH Username with Private Key
-   - Username: git
-   - Private key: Your SSH private key
-   - ID: github-ssh
+2. **Add Token to Jenkins**:
+   - Navigate to Jenkins → Manage Jenkins → Credentials → Global → Add Credentials
+   - Configure:
+     - Kind: Username with password
+     - Username: Your GitHub username
+     - Password: The GitHub token you just generated
+     - ID: github-token (or any memorable name)
+     - Description: GitHub Personal Access Token
+   - Click "Create"
 
 ### Step 3: Create Jenkins Pipeline
 
@@ -125,7 +128,6 @@ This guide walks you through setting up Jenkins and creating a declarative pipel
    - SCM: Git
    - Repository URL: 
      - HTTPS: `https://github.com/YOUR_USERNAME/Jenkins-Declarative-Pipeline.git`
-     - SSH: `git@github.com:YOUR_USERNAME/Jenkins-Declarative-Pipeline.git`
    - Credentials: Select appropriate credentials
    - Branch: */master
 5. Save configuration
