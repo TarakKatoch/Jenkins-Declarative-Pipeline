@@ -5,11 +5,12 @@ This comprehensive guide walks you through setting up Jenkins with GitHub integr
 ## Table of Contents
 1. [Prerequisites](#prerequisites)
 2. [Jenkins Installation](#jenkins-installation)
-3. [ngrok Setup](#setting-up-ngrok-for-webhook-access)
-4. [GitHub Integration](#setting-up-github-integration)
-5. [Pipeline Configuration](#pipeline-configuration)
-6. [Usage Guide](#usage)
-7. [Troubleshooting](#troubleshooting)
+3. [GitHub Integration](#setting-up-github-integration)
+4. [Pipeline Configuration](#pipeline-configuration)
+5. [Setting up ngrok for Webhook Access](#setting-up-ngrok-for-webhook-access)
+6. [Setting up GitHub Webhook](#setting-up-github-webhook)
+7. [Usage Guide](#usage)
+8. [Troubleshooting](#troubleshooting)
 
 ## Prerequisites
 
@@ -57,44 +58,6 @@ This comprehensive guide walks you through setting up Jenkins with GitHub integr
 4. Create your admin user
    - Fill in required details (username, password, email)
    - Save and continue
-
-## Setting up ngrok for Webhook Access
-
-### Step 1: Install ngrok
-1. Open PowerShell as Administrator
-2. Install ngrok using Chocolatey:
-   ```bash
-   choco install ngrok
-   ```
-3. Accept all prompts during installation
-
-### Step 2: Configure ngrok
-1. Create an account at [ngrok Dashboard](https://dashboard.ngrok.com/signup)
-2. After logging in, locate your AuthToken in the dashboard
-3. Configure ngrok with your token:
-   ```bash
-   ngrok config add-authtoken <your_token_here>
-   ```
-   - Replace `<your_token_here>` with your actual token
-   - The command should show a success message
-
-### Step 3: Expose Jenkins
-1. Start ngrok to create a tunnel to Jenkins:
-   ```bash
-   ngrok http 8080
-   ```
-2. Look for the forwarding URL in the output:
-   ```
-   Forwarding    https://abc123.ngrok.io -> http://localhost:8080
-   ```
-3. Important notes:
-   - Keep this terminal window open
-   - The URL changes each time you restart ngrok
-   - Save the URL for GitHub webhook configuration
-
-<div align="center">
-  <img src="/images/Screenshot 2025-04-05 024023.png">
-</div>
 
 ## Setting up GitHub Integration
 
@@ -233,7 +196,47 @@ This comprehensive guide walks you through setting up Jenkins with GitHub integr
   <img src="/images/Screenshot 2025-04-05 022331.png">
 </div>
 
-### Step 3: Configure GitHub Webhook
+## Setting up ngrok for Webhook Access
+
+### Step 1: Install ngrok
+1. Open PowerShell as Administrator
+2. Install ngrok using Chocolatey:
+   ```bash
+   choco install ngrok
+   ```
+3. Accept all prompts during installation
+
+### Step 2: Configure ngrok
+1. Create an account at [ngrok Dashboard](https://dashboard.ngrok.com/signup)
+2. After logging in, locate your AuthToken in the dashboard
+3. Configure ngrok with your token:
+   ```bash
+   ngrok config add-authtoken <your_token_here>
+   ```
+   - Replace `<your_token_here>` with your actual token
+   - The command should show a success message
+
+### Step 3: Expose Jenkins
+1. Start ngrok to create a tunnel to Jenkins:
+   ```bash
+   ngrok http 8080
+   ```
+2. Look for the forwarding URL in the output:
+   ```
+   Forwarding    https://abc123.ngrok.io -> http://localhost:8080
+   ```
+3. Important notes:
+   - Keep this terminal window open
+   - The URL changes each time you restart ngrok
+   - Save the URL for GitHub webhook configuration
+
+<div align="center">
+  <img src="/images/Screenshot 2025-04-05 024023.png">
+</div>
+
+## Setting up GitHub Webhook
+
+### Step 1: Configure GitHub Webhook
 1. In your GitHub repository:
    - Go to Settings → Webhooks
    - Click "Add webhook"
@@ -248,7 +251,7 @@ This comprehensive guide walks you through setting up Jenkins with GitHub integr
   <img src="/images/Screenshot 2025-04-05 024243.png">
 </div>
 
-### Step 4: Enable GitHub Trigger in Jenkins
+### Step 2: Enable GitHub Trigger in Jenkins
 1. Go to your Jenkins job → Configure
 2. Scroll to Build Triggers section
 3. ✅ Check "GitHub hook trigger for GITScm polling"
