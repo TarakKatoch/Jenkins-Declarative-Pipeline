@@ -1,4 +1,4 @@
-# Jenkins Pipeline Setup Guide for Windows
+# Jenkins Declarative Pipeline Setup Guide for Windows
 
 This guide walks you through setting up Jenkins and creating a declarative pipeline that integrates with GitHub.
 
