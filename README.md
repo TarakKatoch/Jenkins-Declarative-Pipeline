@@ -256,6 +256,10 @@ This comprehensive guide walks you through setting up Jenkins with GitHub integr
 
 This setup ensures Jenkins will automatically start builds when it receives webhook events from GitHub.
 
+<div align="center">
+  <img src="/images/Screenshot 2025-04-05 024352.png">
+</div>
+
 ## Usage
 
 ### Manual Builds
@@ -263,11 +267,22 @@ This setup ensures Jenkins will automatically start builds when it receives webh
 2. Click "Build Now"
 3. Monitor the build progress in "Build History"
 
+<div align="center">
+  <img src="/images/Screenshot 2025-04-05 023026.png">
+</div>
+<div align="center">
+  <img src="/images/Screenshot 2025-04-05 023128.png">
+</div>
+
 ### Automatic Builds
 1. Make changes to your repository
 2. Commit and push to GitHub
 3. Jenkins will automatically trigger the build
 4. Monitor the build status in Jenkins
+
+<div align="center">
+  <img src="/images/Screenshot 2025-04-05 025728.png">
+</div>
 
 ## Troubleshooting
 
