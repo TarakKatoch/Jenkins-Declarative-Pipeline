@@ -230,6 +230,8 @@ This comprehensive guide walks you through setting up Jenkins with GitHub integr
    - The URL changes each time you restart ngrok
    - Save the URL for GitHub webhook configuration
 
+> ⚠️ **Important**: By default (free ngrok account), the `https://xxxxx.ngrok.io` URL changes every time you restart ngrok. This means you'll need to update the GitHub webhook each time unless you have a fixed (reserved) domain.
+
 <div align="center">
   <img src="/images/Screenshot 2025-04-05 024023.png">
 </div>
