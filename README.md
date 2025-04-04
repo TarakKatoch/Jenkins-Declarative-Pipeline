@@ -29,6 +29,36 @@ This guide walks you through setting up Jenkins and creating a declarative pipel
    - Choose "Install Suggested Plugins"
    - Create your admin user credentials
 
+## Setting up ngrok for Webhook Access
+
+### Step 1: Install ngrok
+```bash
+choco install ngrok
+```
+Accept any prompts. Once installed, ngrok will be available from any terminal.
+
+### Step 2: Configure ngrok
+1. Sign up at [ngrok Dashboard](https://dashboard.ngrok.com)
+2. Once logged in, copy your AuthToken from the dashboard
+3. Configure ngrok with your token:
+   ```bash
+   ngrok config add-authtoken <your_token_here>
+   ```
+   Replace `<your_token_here>` with your actual token
+
+### Step 3: Expose Jenkins
+1. Start ngrok to expose Jenkins (port 8080):
+   ```bash
+   ngrok http 8080
+   ```
+2. You'll see output like:
+   ```
+   Forwarding    https://abc123.ngrok.io -> http://localhost:8080
+   ```
+3. Copy your unique ngrok URL (e.g., `https://abc123.ngrok.io`)
+   - This URL will be used for GitHub webhook configuration
+   - Note: The URL changes each time you restart ngrok (unless you have a paid plan)
+
 ## Setting up GitHub Integration
 
 ### Step 1: Create GitHub Repository with Jenkinsfile
@@ -137,7 +167,8 @@ This guide walks you through setting up Jenkins and creating a declarative pipel
 1. In GitHub:
    - Go to repository Settings → Webhooks
    - Click "Add webhook"
-   - Payload URL: `http://YOUR_JENKINS_SERVER/github-webhook/`
+   - Payload URL: `https://YOUR_NGROK_URL/github-webhook/`
+     (Replace YOUR_NGROK_URL with the URL from ngrok, e.g., `https://abc123.ngrok.io/github-webhook/`)
    - Content type: application/json
    - Select: Just the push event
    - Save webhook
