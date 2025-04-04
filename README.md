@@ -223,14 +223,16 @@ This comprehensive guide walks you through setting up Jenkins with GitHub integr
    ```
 2. Look for the forwarding URL in the output:
    ```
-   Forwarding    https://abc123.ngrok.io -> http://localhost:8080
+   Forwarding    https://abc123.ngrok-free.app -> http://localhost:8080
    ```
 3. Important notes:
    - Keep this terminal window open
    - The URL changes each time you restart ngrok
    - Save the URL for GitHub webhook configuration
 
-> ⚠️ **Important**: By default (free ngrok account), the `https://xxxxx.ngrok.io` URL changes every time you restart ngrok. This means you'll need to update the GitHub webhook each time unless you have a fixed (reserved) domain.
+> ⚠️ **Important**: By default (free ngrok account), the `https://xxxxx.ngrok-free.app` URL changes every time you restart ngrok. This means you'll need to update the GitHub webhook each time unless you have a fixed (reserved) domain.
+
+> 📌 **Remember**: You must keep the ngrok terminal window open during development. If you close it, the tunnel will terminate and GitHub webhooks will stop working until you start ngrok again and update the webhook URL.
 
 <div align="center">
   <img src="/images/Screenshot 2025-04-05 024023.png">
