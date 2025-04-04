@@ -33,10 +33,10 @@ This guide walks you through setting up Jenkins and creating a declarative pipel
 
 ### Step 1: Create GitHub Repository with Jenkinsfile
 
-1. Create a new GitHub repository (e.g., Jenkins-Declarative-Pipeine)
+1. Create a new GitHub repository (e.g., Jenkins-Declarative-Pipeline)
 2. Clone and set up locally:
    ```bash
-   mkdir Jenkins-Declarative-Pipeine
+   mkdir Jenkins-Declarative-Pipeline
    cd Jenkins-Declarative-Pipeine
    git init
    ```
@@ -93,7 +93,7 @@ This guide walks you through setting up Jenkins and creating a declarative pipel
    ```bash
    git add .
    git commit -m "Add declarative Jenkinsfile"
-   git remote add origin https://github.com/YOUR_USERNAME/Jenkins-Declarative-Pipeine.git
+   git remote add origin https://github.com/YOUR_USERNAME/Jenkins-Declarative-Pipeline.git
    git push -u origin master
    ```
 
@@ -124,8 +124,8 @@ This guide walks you through setting up Jenkins and creating a declarative pipel
    - Definition: Pipeline script from SCM
    - SCM: Git
    - Repository URL: 
-     - HTTPS: `https://github.com/YOUR_USERNAME/Jenkins-Declarative-Pipeine.git`
-     - SSH: `git@github.com:YOUR_USERNAME/Jenkins-Declarative-Pipeine.git`
+     - HTTPS: `https://github.com/YOUR_USERNAME/Jenkins-Declarative-Pipeline.git`
+     - SSH: `git@github.com:YOUR_USERNAME/Jenkins-Declarative-Pipeline.git`
    - Credentials: Select appropriate credentials
    - Branch: */master
 5. Save configuration
